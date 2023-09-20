@@ -17,8 +17,8 @@ const Header = () => {
       />
       <div className={styles.buttonsContainer}>
         <button
-          type="button"
           className={styles.profileButton}
+          type="button"
         >
           Profile
         </button>
@@ -42,20 +42,20 @@ const Header = () => {
           <AiOutlineSearch />
         </button>
         <button
-          type="button"
           className={styles.profileIconButton}
+          type="button"
         >
           <IoPersonOutline />
         </button>
         <button
-          type="button"
           className={styles.button}
+          type="button"
         >
           <GrUpload />
         </button>
         <button
-          type="button"
           className={styles.button}
+          type="button"
         >
           <CgFeed />
         </button>

@@ -51,7 +51,7 @@
   border-radius: 5px;
 }
 
-.signupButton {
+.loginButton {
   all: unset;
   /* Margin, padding and width */
   width: 80px;
@@ -89,8 +89,8 @@
 @media(min-width: 450px) {
   .input {
     /* Margin, padding and width */
-    height: 1.5rem;
     margin-bottom: 5px;
+    height: 1.5rem;
     /* Border */
     border-radius: 5px;
   }

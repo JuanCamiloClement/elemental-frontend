@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc"
-import styles from "./signup.module.css";
+import styles from "./login.module.css";
 
-const SignUpPage = () => {
+const LoginPage = () => {
   return (
     <>
       <header className={styles.header}>
@@ -23,28 +23,7 @@ const SignUpPage = () => {
           height={375}
         />
         <form className={styles.form}>
-          <h2>Sign up</h2>
-          <label htmlFor="firstName">First name</label>
-          <input
-            className={styles.input}
-            type="text"
-            name="firstName"
-            id="firstName"
-          />
-          <label htmlFor="lastName">Last name</label>
-          <input
-            className={styles.input}
-            type="text"
-            name="lastName"
-            id="lastName"
-          />
-          <label htmlFor="userName">Username</label>
-          <input
-            className={styles.input}
-            type="text"
-            name="userName"
-            id="userName"
-          />
+          <h2>Login</h2>
           <label htmlFor="email">Email</label>
           <input
             className={styles.input}
@@ -59,28 +38,21 @@ const SignUpPage = () => {
             name="password"
             id="password"
           />
-          <label htmlFor="confirmPassword">Confirm password</label>
-          <input
-            className={styles.input}
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-          />
           <button
-            className={styles.signupButton}
+            className={styles.loginButton}
             type="submit"
           >
-            Sign up
+            Login
           </button>
           <p>
-            Already have an account? <Link href="/login">Log in</Link>
+            Don't have an account yet? <Link href="/signup">Register</Link>
           </p>
           <button
             className={styles.googleButton}
             type="button"
           >
             <FcGoogle />
-            Sign up with Google
+            Log in with Google
           </button>
         </form>
       </div>
@@ -88,4 +60,4 @@ const SignUpPage = () => {
   );
 }
 
-export default SignUpPage;
+export default LoginPage;

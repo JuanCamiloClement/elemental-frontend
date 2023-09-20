@@ -1,19 +1,25 @@
 .header {
+  /* Margin, padding and width */
   width: 100vw;
   padding: 5px;
-  background-color: #FAEDCD;
+  /* Display */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Background */
+  background-color: #FAEDCD;
 }
 
 .logo {
+  /* Margin, padding and width */
   margin: 0 10px;
 }
 
 .buttonsContainer {
+  /* Margin, padding and width */
   width: 180px;
   margin: 5px;
+  /* Display */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,70 +28,96 @@
 
 .searchIconButton {
   all: unset;
-  background-color: #FEFAE0;
-  border: solid 1px #D4A373;
+  /* Margin, padding and width */
   padding: 8px;
-  border-radius: 50%;
+  /* Display */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Background */
+  background-color: #FEFAE0;
+  /* Font */
   font-size: 1.2rem;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 50%;
 }
 
 .profileIconButton {
   all: unset;
-  background-color: #FEFAE0;
-  border: solid 1px #D4A373;
+  /* Margin, padding and width */
   padding: 8px;
-  border-radius: 50%;
+  /* Display */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Background */
+  background-color: #FEFAE0;
+  border: solid 1px #D4A373;
+  border-radius: 50%;
+  /* Font */
   font-size: 1.2rem;
 }
 
 .profileButton {
   all: unset;
-  font-family: Arial, Helvetica, sans-serif;
+  /* Margin, padding and width */
+  padding: 5px;
+  /* Display */
+  display: none;
+  /* Background */
   background-color: #FEFAE0;
+  /* Border */
   border: solid 1px #D4A373;
   border-radius: 5px;
-  padding: 5px;
+  /* Cursor */
   cursor: pointer;
-  display: none;
 }
 
 .button {
   all: unset;
-  background-color: #FEFAE0;
-  border: solid 1px #D4A373;
+  /* Margin, padding and width */
   padding: 8px;
-  border-radius: 50%;
+  /* Display */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Background */
+  background-color: #FEFAE0;
+  border: solid 1px #D4A373;
+  border-radius: 50%;
+  /* Font */
   font-size: 1.2rem;
 }
 
 .searchContainer {
-  display: none;
+  /* Margin, padding and width */
   margin: 5px;
+  /* Display */
+  display: none;
 }
 
 .searchInput {
+  /* Margin, padding and width */
   padding-left: 10px;
+  /* Font and text*/
+  line-height: 1.6rem;
+  /* Border */
   border: solid 1px #D4A373;
   border-right: none;
   border-radius: 5px 0 0 5px;
-  line-height: 1.6rem;
 }
 
 .searchButton {
+  /* Background */
   background-color: white;
+  /* Font and text*/
+  line-height: 1.6rem;
+  /* Border */
   border: solid 1px #D4A373;
   border-left: none;
   border-radius: 0 5px 5px 0;
-  line-height: 1.6rem;
+  /* Cursor */
   cursor: pointer;
 }
 
