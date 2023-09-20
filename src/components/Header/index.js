@@ -1,0 +1,67 @@
+import Image from "next/image";
+import { AiOutlineSearch } from "react-icons/ai";
+import { CgFeed } from "react-icons/cg";
+import { IoPersonOutline } from "react-icons/io5";
+import { GrUpload } from "react-icons/gr";
+import styles from "./Header.module.css";
+
+const Header = () => {
+  return (
+    <header className={styles.header}>
+      <Image
+        className={styles.logo}
+        src="/elemental-transparent.png"
+        alt="Elemental logo"
+        width={150}
+        height={40}
+      />
+      <div className={styles.buttonsContainer}>
+        <button
+          type="button"
+          className={styles.profileButton}
+        >
+          Profile
+        </button>
+        <div className={styles.searchContainer}>
+          <input
+            className={styles.searchInput}
+            type="text"
+            placeholder="Search..."
+          />
+          <button
+            className={styles.searchButton}
+            type="button"
+          >
+            <AiOutlineSearch />
+          </button>
+        </div>
+        <button
+          className={styles.searchIconButton}
+          type="button"
+        >
+          <AiOutlineSearch />
+        </button>
+        <button
+          type="button"
+          className={styles.profileIconButton}
+        >
+          <IoPersonOutline />
+        </button>
+        <button
+          type="button"
+          className={styles.button}
+        >
+          <GrUpload />
+        </button>
+        <button
+          type="button"
+          className={styles.button}
+        >
+          <CgFeed />
+        </button>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
