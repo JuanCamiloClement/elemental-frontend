@@ -1,6 +1,15 @@
-.header {
+.headerContainer {
   /* Margin, padding and width */
-  width: 100vw;
+  width: 100%;
+  padding-bottom: 90px;
+}
+
+.header {
+  /* Position */
+  z-index: 9999;
+  position: fixed;
+  /* Margin, padding and width */
+  width: 100%;
   padding: 5px;
   /* Display */
   display: flex;
@@ -8,6 +17,8 @@
   align-items: center;
   /* Background */
   background-color: #FAEDCD;
+  /* Border */
+  border-bottom: solid 1px #D4A373;
 }
 
 .logo {
@@ -41,6 +52,8 @@
   /* Border */
   border: solid 1px #D4A373;
   border-radius: 50%;
+  /* Cursor */
+  cursor: pointer;
 }
 
 .profileIconButton {
@@ -57,6 +70,8 @@
   border-radius: 50%;
   /* Font */
   font-size: 1.2rem;
+  /* Cursor */
+  cursor: pointer;
 }
 
 .profileButton {
@@ -88,6 +103,8 @@
   border-radius: 50%;
   /* Font */
   font-size: 1.2rem;
+  /* Cursor */
+  cursor: pointer;
 }
 
 .searchContainer {
@@ -138,6 +155,10 @@
 }
 
 @media(min-width: 500px) {
+  .headerContainer {
+    padding-bottom: 50px;
+  }
+
   .header {
     display: flex;
     flex-direction: row;
