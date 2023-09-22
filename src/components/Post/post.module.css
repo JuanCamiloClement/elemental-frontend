@@ -1,0 +1,75 @@
+.paragraph {
+  all: unset;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.post {
+  /* Position */
+  /* Margin, padding and width */
+  margin: 10px;
+  /* Display */
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 10px;
+  /* Cursor */
+}
+
+.postHeader {
+  /* Position */
+  /* Margin, padding and width */
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Font and text*/
+  /* Border */
+  border: solid 1px #FAEDCD;
+  border-radius: 10px 10px 0 0;
+  /* Cursor */
+}
+
+.postImage {
+  /* Margin, padding and width */
+  width: 300px;
+  height: 225px;
+}
+
+.likesAndComments {
+  /* Position */
+  /* Margin, padding and width */
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Background */
+  background-color: #FEFAE0;
+  /* Font and text*/
+  /* Border */
+  border: solid 1px #FAEDCD;
+  border-radius: 0 0 10px 10px;
+  /* Cursor */
+}
+
+.heartButton {
+  all: unset;
+  /* Cursor */
+  cursor: pointer;
+}
+
+@media(min-width: 500px) {
+  .postImage {
+    /* Margin, padding and width */
+    width: 500px;
+    height: 375px;
+  }
+}

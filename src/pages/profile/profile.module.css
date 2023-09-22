@@ -1,5 +1,7 @@
 .wholeContainer {
-  /* padding-top: 200px; */
+  /* Position */
+  width: fit-content;
+  /* Display */
   display: flex;
   flex-direction: column;
 }
@@ -124,6 +126,15 @@
   margin: 20px;
 }
 
+.postsContainer {
+  /* Margin, padding and width */
+  width: 100%;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media(min-width: 375px) {
   .profileImage {
     margin-bottom: 0px;
@@ -146,5 +157,24 @@
 
   .profileContainer {
     max-width: 300px;
+  }
+
+  .postsContainer {
+    padding: 20px;
+  }
+}
+
+@media(min-width: 900px) {
+  .wholeContainer {
+    margin: auto;
+  }
+
+  .profileContainer {
+    border-right: solid 1px #D4A373;
+    border-left: solid 1px #D4A373;
+  }
+
+  .postsContainer {
+    border-right: solid 1px #D4A373;
   }
 }

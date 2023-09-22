@@ -1,26 +1,29 @@
 import Image from "next/image";
+import Link from "next/link";
+import { AiOutlineHeart } from "react-icons/ai";
 import sloth from "@public/sloth-with-coffe.jpeg";
 import styles from "./post.module.css";
 
 const Post = () => {
   return (
-    <div className={styles.postContainer}>
+    <div className={styles.post}>
       <div className={styles.postHeader}>
-        <p>juancamiloclement</p>
-        <p>10 hours ago</p>
+        <Link className={styles.link} href="/profile">
+          <p className={styles.paragraph}><strong>juancamiloclement</strong></p>
+        </Link>
+        <p className={styles.paragraph}>10 hours ago</p>
       </div>
-      <div className={styles.imageContainer}>
-        <Image
-          className={styles.postImage}
-          src={sloth}
-          alt="Post"
-          width={200}
-          height={200}
-        />
-      </div>
+      <Image
+        className={styles.postImage}
+        src={sloth}
+        alt="Post"
+        width={800}
+        height={600}
+      />
       <div className={styles.likesAndComments}>
-        <p>10 likes</p>
-        <p>10 comments</p>
+        <button className={styles.heartButton}><AiOutlineHeart /></button>
+        <p className={styles.paragraph}>10 likes</p>
+        <p className={styles.paragraph}>10 comments</p>
       </div>
     </div>
   );

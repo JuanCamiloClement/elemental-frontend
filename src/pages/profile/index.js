@@ -53,6 +53,8 @@ const ProfilePage = () => {
         </div>
         <div className={styles.postsContainer}>
           <Post />
+          <Post />
+          <Post />
         </div>
       </div>
     </Layout>

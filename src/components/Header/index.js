@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
 import { IoPersonOutline } from "react-icons/io5";
@@ -9,20 +10,24 @@ const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <Image
-          className={styles.logo}
-          src="/elemental-transparent.png"
-          alt="Elemental logo"
-          width={150}
-          height={40}
-        />
+        <Link className={styles.link} href="/feed">
+          <Image
+            className={styles.logo}
+            src="/elemental-transparent.png"
+            alt="Elemental logo"
+            width={150}
+            height={40}
+          />
+        </Link>
         <div className={styles.buttonsContainer}>
-          <button
-            className={styles.profileButton}
-            type="button"
-          >
-            Profile
-          </button>
+          <Link className={styles.link} href="/profile">
+            <button
+              className={styles.profileButton}
+              type="button"
+            >
+              Profile
+            </button>
+          </Link>
           <div className={styles.searchContainer}>
             <input
               className={styles.searchInput}
@@ -42,24 +47,28 @@ const Header = () => {
           >
             <AiOutlineSearch />
           </button>
-          <button
-            className={styles.profileIconButton}
-            type="button"
-          >
-            <IoPersonOutline />
-          </button>
+          <Link className={styles.link} href="/profile">
+            <button
+              className={styles.profileIconButton}
+              type="button"
+            >
+              <IoPersonOutline />
+            </button>
+          </Link>
           <button
             className={styles.button}
             type="button"
           >
             <GrUpload />
           </button>
-          <button
-            className={styles.button}
-            type="button"
-          >
-            <CgFeed />
-          </button>
+          <Link className={styles.link} href="/feed">
+            <button
+              className={styles.button}
+              type="button"
+            >
+              <CgFeed />
+            </button>
+          </Link>
         </div>
       </header>
     </div>
