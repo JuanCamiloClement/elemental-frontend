@@ -1,3 +1,5 @@
+// 'use client'
+// import { useParams } from "next/navigation";
 import Image from "next/image";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
@@ -6,6 +8,8 @@ import { AiOutlineEdit } from "react-icons/ai";
 import styles from "./profile.module.css";
 
 const ProfilePage = () => {
+  // const params = useParams();
+  // console.log(params);
   return (
     <Layout>
       <div className={styles.wholeContainer}>

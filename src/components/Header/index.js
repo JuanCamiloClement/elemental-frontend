@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <Link className={styles.link} href="/feed">
+        <Link className={styles.link} href={`/feed/`}>
           <Image
             className={styles.logo}
             src="/elemental-transparent.png"
