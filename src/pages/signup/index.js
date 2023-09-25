@@ -1,9 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc"
 import styles from "./signup.module.css";
 
 const SignUpPage = () => {
+  const router = useRouter();
+
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const fetchConfig = {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    await fetch('http://localhost:8080/api/users/', fetchConfig);
+
+    router.push('/verify-email');
+  }
+
   return (
     <>
       <header className={styles.header}>
@@ -22,7 +54,10 @@ const SignUpPage = () => {
           width={450}
           height={375}
         />
-        <form className={styles.form}>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit}
+        >
           <h2>Sign up</h2>
           <label htmlFor="firstName">First name</label>
           <input
@@ -30,6 +65,8 @@ const SignUpPage = () => {
             type="text"
             name="firstName"
             id="firstName"
+            value={user.firstName}
+            onChange={handleChange}
           />
           <label htmlFor="lastName">Last name</label>
           <input
@@ -37,6 +74,8 @@ const SignUpPage = () => {
             type="text"
             name="lastName"
             id="lastName"
+            value={user.lastName}
+            onChange={handleChange}
           />
           <label htmlFor="userName">Username</label>
           <input
@@ -44,6 +83,8 @@ const SignUpPage = () => {
             type="text"
             name="userName"
             id="userName"
+            value={user.userName}
+            onChange={handleChange}
           />
           <label htmlFor="email">Email</label>
           <input
@@ -51,6 +92,8 @@ const SignUpPage = () => {
             type="email"
             name="email"
             id="email"
+            value={user.email}
+            onChange={handleChange}
           />
           <label htmlFor="password">Password</label>
           <input
@@ -58,6 +101,8 @@ const SignUpPage = () => {
             type="password"
             name="password"
             id="password"
+            value={user.password}
+            onChange={handleChange}
           />
           <label htmlFor="confirmPassword">Confirm password</label>
           <input

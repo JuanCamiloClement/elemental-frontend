@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
 import { IoPersonOutline } from "react-icons/io5";
@@ -7,6 +8,8 @@ import { GrUpload } from "react-icons/gr";
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
@@ -20,14 +23,13 @@ const Header = () => {
           />
         </Link>
         <div className={styles.buttonsContainer}>
-          <Link className={styles.link} href="/profile">
-            <button
-              className={styles.profileButton}
-              type="button"
-            >
-              Profile
-            </button>
-          </Link>
+          <button
+            className={styles.profileButton}
+            type="button"
+            onClick={() => router.push("/profile")}
+          >
+            Profile
+          </button>
           <div className={styles.searchContainer}>
             <input
               className={styles.searchInput}
@@ -47,28 +49,26 @@ const Header = () => {
           >
             <AiOutlineSearch />
           </button>
-          <Link className={styles.link} href="/profile">
-            <button
-              className={styles.profileIconButton}
-              type="button"
-            >
-              <IoPersonOutline />
-            </button>
-          </Link>
+          <button
+            className={styles.profileIconButton}
+            type="button"
+            onClick={() => router.push("/profile")}
+          >
+            <IoPersonOutline />
+          </button>
           <button
             className={styles.button}
             type="button"
           >
             <GrUpload />
           </button>
-          <Link className={styles.link} href="/feed">
-            <button
-              className={styles.button}
-              type="button"
-            >
-              <CgFeed />
-            </button>
-          </Link>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={() => router.push("/feed")}
+          >
+            <CgFeed />
+          </button>
         </div>
       </header>
     </div>

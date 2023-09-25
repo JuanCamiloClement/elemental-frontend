@@ -1,0 +1,20 @@
+.header {
+  /* Margin, padding and width */
+  width: 100vw;
+  padding: 5px;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border-bottom: solid 1px #D4A373;
+}
+
+.h3 {
+  text-align: center;
+}
+
+.p {
+  text-align: center;
+}

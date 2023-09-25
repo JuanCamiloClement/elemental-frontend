@@ -1,9 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
+// import { useState } from "react";
+// import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc"
 import styles from "./login.module.css";
 
 const LoginPage = () => {
+  // const router = useRouter();
+
+  // const [user, setUser] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+
+  // const handleChange = (e) => {
+  //   setUser({ ...user, [e.target.name]: e.target.value });
+  // };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const fetchConfig = {
+  //     method: 'POST',
+  //     body: JSON.stringify(user),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }
+
+  //   await fetch('http://localhost:8080/auth/local/login', fetchConfig); // receive user and send username through path params
+
+  //   router.push('/feed');
+  // }
   return (
     <>
       <header className={styles.header}>
