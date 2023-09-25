@@ -1,8 +1,12 @@
+import { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Post from '@/components/Post';
 import styles from './feed.module.css';
 
-const FeedPage = () => {
+const FeedPage = ({ user }) => {
+  // useEffect(() => {
+  //   localStorage.setItem()
+  // }, []);
   return (
     <>
       <Layout>
@@ -20,3 +24,14 @@ const FeedPage = () => {
 }
 
 export default FeedPage;
+
+export const getServerSideProps = async ({ params }) => {
+  const response = await fetch(`http://localhost:8080/api/users/logged/${params.userName}`);
+  const user = await response.json();
+
+  return {
+    props: {
+      user
+    }
+  }
+}

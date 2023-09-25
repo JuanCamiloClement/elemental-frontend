@@ -1,0 +1,35 @@
+.errorContainer {
+  /* Margin, padding and width */
+  width: fit-content;
+  margin: 20px auto;
+  padding: 20px;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Font and text*/
+  text-align: center;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 10px;
+}
+
+.errorTitle {
+  margin-top: 0;
+}
+
+.okButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: 80px;
+  margin: auto;
+  padding: 5px 2px;
+  /* Background */
+  background-color: #1E3231;
+  /* Font and text*/
+  color: white;
+  text-align: center;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px grey;
+  /* Cursor */
+  cursor: pointer;
+}

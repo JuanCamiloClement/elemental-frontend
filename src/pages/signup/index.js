@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ErrorMessage from "@/components/ErrorMessage";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc"
@@ -8,6 +9,8 @@ import styles from "./signup.module.css";
 const SignUpPage = () => {
   const router = useRouter();
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessageExists, setErrorMessageExists] = useState(false);
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -23,17 +26,44 @@ const SignUpPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const fetchConfig = {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
+    try {
+      const fetchConfig = {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
+
+      const response = await fetch('http://localhost:8080/api/users/', fetchConfig);
+      const createdUser = await response.json();
+
+      setErrorMessage(createdUser.message);
+
+      router.push('/verify-email');
+    } catch (error) {
+      setErrorMessageExists(true);
     }
+  }
 
-    await fetch('http://localhost:8080/api/users/', fetchConfig);
-
-    router.push('/verify-email');
+  if (errorMessageExists) {
+    return (
+      <>
+        <header className={styles.header}>
+          <Image
+            src="/elemental-transparent.png"
+            alt="Elemental logo"
+            width={150}
+            height={40}
+          />
+        </header>
+        <ErrorMessage
+          buttonFunction={() => setErrorMessageExists(false)}
+        >
+          {errorMessage}
+        </ErrorMessage>
+      </>
+    )
   }
 
   return (
