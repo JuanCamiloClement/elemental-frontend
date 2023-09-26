@@ -25,9 +25,9 @@
 
 @media(min-width: 768px) {
   .wholeContainer {
-    border-left: solid 1px #D4A373;
     padding-left: 50px;
     padding-right: 50px;
+    border-left: solid 1px #D4A373;
     border-right: solid 1px #D4A373;
   }
 }

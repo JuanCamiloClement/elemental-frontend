@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import { useState, useEffect } from "react";
@@ -7,6 +8,7 @@ import profilePic from "@public/profile-pic.jpeg";
 import styles from "./profile.module.css";
 
 const ProfilePage = ({ userOfProfile }) => {
+  const cookies = new Cookies();
 
   const [postsToMap, setPostsToMap] = useState([]);
 
@@ -44,12 +46,21 @@ const ProfilePage = ({ userOfProfile }) => {
             >
               <AiOutlineEdit />
             </button>
-            <button
-              className={styles.editTextButton}
-              type="button"
-            >
-              Edit
-            </button>
+            {userOfProfile.userName === cookies.get('userName') ?
+              <button
+                className={styles.editTextButton}
+                type="button"
+              >
+                Edit
+              </button>
+              :
+              <button
+                className={styles.editTextButton}
+                type="button"
+              >
+                Follow
+              </button>
+            }
           </div>
           <div className={styles.infoContainer}>
             <p className={styles.fullName}>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
@@ -9,8 +10,9 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const router = useRouter();
+  const cookies = new Cookies();
 
-  const userName = localStorage.getItem('userName');
+  const userName = cookies.get('userName');
 
   return (
     <div className={styles.headerContainer}>

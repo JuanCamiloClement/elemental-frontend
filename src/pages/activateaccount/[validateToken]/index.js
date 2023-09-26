@@ -1,14 +1,17 @@
+import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
 import { useEffect } from "react";
 import styles from "./activate-account.module.css"
 
 const AccountActivationPage = ({ user }) => {
+  const cookies = new Cookies();
+
   useEffect(() => {
-    localStorage.setItem('token', user.token);
-    localStorage.setItem('firstName', user.profile.firstName);
-    localStorage.setItem('lastName', user.profile.lastName);
-    localStorage.setItem('userName', user.profile.userName);
-    localStorage.setItem('email', user.profile.email);
+    cookies.set('token', user.token);
+    cookies.set('firstName', user.profile.firstName);
+    cookies.set('lastName', user.profile.lastName);
+    cookies.set('userName', user.profile.userName);
+    cookies.set('email', user.profile.email);
   }, []);
 
   return (

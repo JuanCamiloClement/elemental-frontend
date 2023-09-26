@@ -1,0 +1,276 @@
+.wholeContainer {
+  /* Position */
+  width: fit-content;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfileContainer {
+  /* Position */
+  position: relative;
+  /* Margin, padding and width */
+  width: 100vw;
+  padding: 20px;
+}
+
+.editMenu {
+  /* Margin, padding and width */
+  margin: auto;
+  padding: 10px;
+  max-width: 400px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 10px;
+}
+
+.h3 {
+  text-align: center;
+}
+
+.button {
+  all: unset;
+  /* Margin, padding and width */
+  margin: 5px;
+  padding: 5px;
+  /* Background */
+  background-color: #FEFAE0;
+  /* Font and text*/
+  text-align: center;
+  /* Border */
+  border: dashed 1px #D4A373;
+  border-radius: 10px;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.button:hover {
+  all: unset;
+  /* Margin, padding and width */
+  margin: 5px;
+  padding: 5px;
+  /* Background */
+  background-color: white;
+  /* Font and text*/
+  text-align: center;
+  /* Border */
+  border: dashed 1px #D4A373;
+  border-radius: 10px;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.sectionToEdit {
+  /* Margin, padding and width */
+  margin: auto;
+  padding: 10px;
+  max-width: 400px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImage {
+  /* Margin, padding and width */
+  margin-bottom: 20px;
+  /* Border */
+  border: solid 2px #D4A373;
+  border-radius: 50%;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.uploadButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: 80px;
+  margin: 20px;
+  padding: 10px 5px;
+  /* Background */
+  background-color: #1E3231;
+  /* Font and text*/
+  color: white;
+  text-align: center;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px #D4A373;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.removeButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: 80px;
+  margin: 20px;
+  padding: 10px 5px;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Font and text*/
+  text-align: center;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px #D4A373;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.editPersonalInformationSection {
+  /* Position */
+  /* Margin, padding and width */
+  width: 100%;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+.editPersonalInformationForm {
+  /* Margin, padding and width */
+  width: 90%;
+  max-width: 400px;
+  margin: 10px 5px;
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 15px;
+}
+
+.input {
+  /* Margin, padding and width */
+  margin-bottom: 5px;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 5px;
+}
+
+.textarea {
+  /* Margin, padding and width */
+  margin-bottom: 5px;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 5px;
+}
+
+.saveButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: 80px;
+  margin: 20px auto;
+  padding: 10px 5px;
+  /* Background */
+  background-color: #1E3231;
+  /* Font and text*/
+  color: white;
+  text-align: center;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px #D4A373;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.changePasswordSection {
+  /* Margin, padding and width */
+  width: 100%;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.changePasswordForm {
+  /* Margin, padding and width */
+  width: 90%;
+  max-width: 400px;
+  margin: 10px 5px;
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 15px;
+}
+
+@media(min-width: 500px) {
+  .button {
+    /* Margin, padding and width */
+    margin: 10px;
+    padding: 10px;
+    /* Font and text*/
+    font-size: 1.2rem;
+  }
+
+  .button:hover {
+    /* Margin, padding and width */
+    margin: 10px;
+    padding: 10px;
+    /* Font and text*/
+    font-size: 1.2rem;
+  }
+
+  .input {
+    height: 1.5rem;
+  }
+
+  .textarea {
+    height: 3rem;
+  }
+}
+
+@media(min-width: 768px) {
+  .editMenu {
+    margin-right: 10px;
+  }
+
+  .sectionToEdit {
+    margin-left: 10px;
+  }
+
+  .editProfileContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .changePasswordForm {
+    width: 400px;
+  }
+}
+
+/* Position */
+/* Margin, padding and width */
+/* Display */
+/* Background */
+/* Font and text*/
+/* Border */
+/* Cursor */

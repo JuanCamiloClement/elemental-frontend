@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from "universal-cookie";
 import ErrorMessage from "@/components/ErrorMessage";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -7,6 +8,7 @@ import { FcGoogle } from "react-icons/fc"
 import styles from "./login.module.css";
 
 const LoginPage = () => {
+  const cookies = new Cookies();
   const router = useRouter();
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -36,11 +38,11 @@ const LoginPage = () => {
 
       setErrorMessage(loggedUser.message);
 
-      localStorage.setItem('token', loggedUser.token);
-      localStorage.setItem('firstName', loggedUser.profile.firstName);
-      localStorage.setItem('lastName', loggedUser.profile.lastName);
-      localStorage.setItem('userName', loggedUser.profile.userName);
-      localStorage.setItem('email', loggedUser.profile.email);
+      cookies.set('token', loggedUser.token);
+      cookies.set('firstName', loggedUser.profile.firstName);
+      cookies.set('lastName', loggedUser.profile.lastName);
+      cookies.set('userName', loggedUser.profile.userName);
+      cookies.set('email', loggedUser.profile.email);
 
       router.push(`/feed/${loggedUser.profile.userName}`);
     } catch (error) {
