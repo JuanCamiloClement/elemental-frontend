@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import Layout from '@/components/Layout';
 import Post from '@/components/Post';
+import { useEffect, useState } from 'react';
 import styles from './feed.module.css';
 
 const FeedPage = ({ loggedUser }) => {
@@ -10,15 +10,15 @@ const FeedPage = ({ loggedUser }) => {
   useEffect(() => {
     const postsToRender = [];
     loggedUser.follows.map(({ user }) => {
-      user.posts.map((post) => {
+      user.posts.map(({ url, likes, comments, createdAt }) => {
         postsToRender.push({
-          url: post.url,
+          url,
           user,
-          likes: post.likes,
-          comments: post.comments,
-          createdAt: post.createdAt,
+          likes,
+          comments,
+          createdAt,
         });
-      });;
+      });
     });
     setPostsToMap(postsToRender);
   }, []);
@@ -35,6 +35,7 @@ const FeedPage = ({ loggedUser }) => {
               postsToMap.map((post) => {
                 return (
                   <Post
+                    key={post.url}
                     username={post.user.userName}
                     date={post.createdAt}
                     url={post.url}

@@ -10,10 +10,12 @@ import styles from "./Header.module.css";
 const Header = () => {
   const router = useRouter();
 
+  const userName = localStorage.getItem('userName');
+
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <Link className={styles.link} href={`/feed/`}>
+        <Link className={styles.link} href={`/feed/${userName}`}>
           <Image
             className={styles.logo}
             src="/elemental-transparent.png"
@@ -26,7 +28,7 @@ const Header = () => {
           <button
             className={styles.profileButton}
             type="button"
-            onClick={() => router.push("/profile")}
+            onClick={() => router.push(`/profile/${userName}`)}
           >
             Profile
           </button>
@@ -52,7 +54,7 @@ const Header = () => {
           <button
             className={styles.profileIconButton}
             type="button"
-            onClick={() => router.push("/profile")}
+            onClick={() => router.push(`/profile/${userName}`)}
           >
             <IoPersonOutline />
           </button>
@@ -65,7 +67,7 @@ const Header = () => {
           <button
             className={styles.button}
             type="button"
-            onClick={() => router.push("/feed")}
+            onClick={() => router.push(`/feed/${userName}`)}
           >
             <CgFeed />
           </button>

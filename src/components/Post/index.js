@@ -13,7 +13,7 @@ const Post = ({
   return (
     <div className={styles.post}>
       <div className={styles.postHeader}>
-        <Link className={styles.link} href="/profile">
+        <Link className={styles.link} href={`/profile/${username}`}>
           <p className={styles.paragraph}><strong>{username}</strong></p>
         </Link>
         <p className={styles.paragraph}>{date}</p>
