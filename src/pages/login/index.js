@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Cookies from "universal-cookie";
 import ErrorMessage from "@/components/ErrorMessage";
+import Footer from "@/components/Footer";
 import { useContext, useState } from "react";
 import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { useRouter } from "next/router";
@@ -141,6 +142,7 @@ const LoginPage = () => {
           </button>
         </form>
       </div >
+      <Footer />
     </>
   );
 }

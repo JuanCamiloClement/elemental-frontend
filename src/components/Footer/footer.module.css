@@ -1,0 +1,60 @@
+.footer {
+  /* Position */
+  /* Margin, padding and width */
+  margin-top: auto;
+  width: 100vw;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* Background */
+  background-color: #FEFAE0;
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+.toRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin: 10px;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media(min-width: 375px) {
+  .linksContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+@media(min-width: 500px) {
+  .toRow {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .linksContainer {
+    max-width: 50vw;
+  }
+}
+
+/* Position */
+/* Margin, padding and width */
+/* Display */
+/* Background */
+/* Font and text*/
+/* Border */
+/* Cursor */

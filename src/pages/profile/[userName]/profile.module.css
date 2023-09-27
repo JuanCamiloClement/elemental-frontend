@@ -1,5 +1,6 @@
 .wholeContainer {
   /* Position */
+  height: 100%;
   width: fit-content;
   /* Display */
   display: flex;
@@ -166,7 +167,7 @@
 
 @media(min-width: 900px) {
   .wholeContainer {
-    margin: auto;
+    margin: 0 auto;
   }
 
   .profileContainer {

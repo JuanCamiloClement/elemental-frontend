@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ErrorMessage from "@/components/ErrorMessage";
+import Footer from "@/components/Footer";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc"
@@ -159,6 +160,7 @@ const SignUpPage = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

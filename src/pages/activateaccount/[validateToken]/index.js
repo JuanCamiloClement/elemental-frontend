@@ -25,12 +25,12 @@ const AccountActivationPage = ({ user }) => {
   }, []);
 
   return (
-    <div>
-      <Layout>
+    <Layout>
+      <div className={styles.wholeContainer}>
         <h3 className={styles.h3}>Your account has been activated</h3>
         <p className={styles.p}>You are also already logged in. Please enjoy the page!</p>
-      </Layout>
-    </div>
+      </div>
+    </Layout>
   );
 }
 

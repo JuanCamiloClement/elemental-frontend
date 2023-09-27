@@ -1,5 +1,6 @@
 .wholeContainer {
   /* Margin, padding and width */
+  height: 100%;
   padding-top: 20px;
   /* Display */
   display: flex;
