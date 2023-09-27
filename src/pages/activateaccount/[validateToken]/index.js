@@ -1,17 +1,27 @@
 import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import styles from "./activate-account.module.css"
 
 const AccountActivationPage = ({ user }) => {
   const cookies = new Cookies();
 
+  const { setLoggedUser } = useContext(LoggedUserContext);
+
   useEffect(() => {
-    cookies.set('token', user.token);
-    cookies.set('firstName', user.profile.firstName);
-    cookies.set('lastName', user.profile.lastName);
-    cookies.set('userName', user.profile.userName);
-    cookies.set('email', user.profile.email);
+    setLoggedUser({
+      token: user.token,
+      firstName: user.profile.firstName,
+      lastName: user.profile.lastName,
+      userName: user.profile.userName,
+      email: user.profile.email,
+    });
+    cookies.set('token', user.token, { path: "/" });
+    cookies.set('firstName', user.profile.firstName, { path: "/" });
+    cookies.set('lastName', user.profile.lastName, { path: "/" });
+    cookies.set('userName', user.profile.userName, { path: "/" });
+    cookies.set('email', user.profile.email, { path: "/" });
   }, []);
 
   return (

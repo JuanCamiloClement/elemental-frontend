@@ -2,13 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Cookies from "universal-cookie";
 import ErrorMessage from "@/components/ErrorMessage";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc"
 import styles from "./login.module.css";
 
 const LoginPage = () => {
   const cookies = new Cookies();
+
+  const { setLoggedUser } = useContext(LoggedUserContext);
+
   const router = useRouter();
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -38,11 +42,19 @@ const LoginPage = () => {
 
       setErrorMessage(loggedUser.message);
 
-      cookies.set('token', loggedUser.token);
-      cookies.set('firstName', loggedUser.profile.firstName);
-      cookies.set('lastName', loggedUser.profile.lastName);
-      cookies.set('userName', loggedUser.profile.userName);
-      cookies.set('email', loggedUser.profile.email);
+      setLoggedUser({
+        token: loggedUser.token,
+        firstName: loggedUser.profile.firstName,
+        lastName: loggedUser.profile.lastName,
+        userName: loggedUser.profile.userName,
+        email: loggedUser.profile.email,
+      });
+
+      cookies.set('token', loggedUser.token, { path: "/" });
+      cookies.set('firstName', loggedUser.profile.firstName, { path: "/" });
+      cookies.set('lastName', loggedUser.profile.lastName, { path: "/" });
+      cookies.set('userName', loggedUser.profile.userName, { path: "/" });
+      cookies.set('email', loggedUser.profile.email, { path: "/" });
 
       router.push(`/feed/${loggedUser.profile.userName}`);
     } catch (error) {

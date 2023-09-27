@@ -2,13 +2,19 @@ import Image from "next/image";
 import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useState, useEffect, useContext } from "react";
+import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { AiOutlineEdit } from "react-icons/ai";
 import profilePic from "@public/profile-pic.jpeg";
 import styles from "./profile.module.css";
 
 const ProfilePage = ({ userOfProfile }) => {
   const cookies = new Cookies();
+
+  const router = useRouter();
+
+  const { loggedUser } = useContext(LoggedUserContext);
 
   const [postsToMap, setPostsToMap] = useState([]);
 
@@ -46,20 +52,22 @@ const ProfilePage = ({ userOfProfile }) => {
             >
               <AiOutlineEdit />
             </button>
-            {userOfProfile.userName === cookies.get('userName') ?
-              <button
-                className={styles.editTextButton}
-                type="button"
-              >
-                Edit
-              </button>
-              :
-              <button
-                className={styles.editTextButton}
-                type="button"
-              >
-                Follow
-              </button>
+            {
+              userOfProfile.userName === loggedUser.userName || cookies.get('userName') ?
+                (<button
+                  className={styles.editTextButton}
+                  type="button"
+                  onClick={() => router.push(`/edit-profile/${userOfProfile.userName}`)}
+                >
+                  Edit
+                </button>
+                ) : (
+                  <button
+                    className={styles.editTextButton}
+                    type="button"
+                  >
+                    Follow
+                  </button>)
             }
           </div>
           <div className={styles.infoContainer}>
