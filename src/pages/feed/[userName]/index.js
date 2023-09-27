@@ -5,11 +5,13 @@ import styles from './feed.module.css';
 
 const FeedPage = ({ loggedUser }) => {
 
+  const { follows } = loggedUser;
+
   const [postsToMap, setPostsToMap] = useState([]);
 
   useEffect(() => {
     const postsToRender = [];
-    loggedUser.follows.map(({ user }) => {
+    follows.map(({ user }) => {
       user.posts.map(({ url, likes, comments, createdAt }) => {
         postsToRender.push({
           url,

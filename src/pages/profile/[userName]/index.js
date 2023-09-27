@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { AiOutlineEdit } from "react-icons/ai";
 import profilePic from "@public/profile-pic.jpeg";
@@ -16,23 +16,13 @@ const ProfilePage = ({ userOfProfile }) => {
 
   const { loggedUser } = useContext(LoggedUserContext);
 
-  const [postsToMap, setPostsToMap] = useState([]);
-
-  useEffect(() => {
-    const postsToRender = []
-    if (userOfProfile.posts.length > 0) {
-      userOfProfile.posts[0].user.posts.map(({ url, likes, comments, createdAt }) => {
-        postsToRender.push({
-          url,
-          user: userOfProfile.userName,
-          likes,
-          comments,
-          createdAt
-        })
-      });
-      setPostsToMap(postsToRender);
-    }
-  }, []);
+  const {
+    firstName,
+    lastName,
+    userName,
+    posts,
+    followers,
+  } = userOfProfile;
 
   return (
     <Layout>
@@ -53,7 +43,7 @@ const ProfilePage = ({ userOfProfile }) => {
               <AiOutlineEdit />
             </button>
             {
-              userOfProfile.userName === loggedUser.userName || cookies.get('userName') ?
+              userName === loggedUser.userName || cookies.get('userName') ?
                 (<button
                   className={styles.editTextButton}
                   type="button"
@@ -72,35 +62,35 @@ const ProfilePage = ({ userOfProfile }) => {
           </div>
           <div className={styles.infoContainer}>
             <p className={styles.fullName}>
-              {userOfProfile.firstName} {userOfProfile.lastName}
+              {firstName} {lastName}
             </p>
             <p className={styles.userName}>
-              {userOfProfile.userName}
+              {userName}
             </p>
             {userOfProfile.bio &&
               <p className={styles.bio}>
-                {user.bio}
+                {userOfProfile.bio}
               </p>
             }
           </div>
           <div className={styles.followersAndPostsContainer}>
             <p className={styles.postsAmount}>
-              <strong>Posts: </strong>{userOfProfile.posts.length}
+              <strong>Posts: </strong>{posts.length}
             </p>
             <p className={styles.followersAmount}>
-              <strong>Followers: </strong>{userOfProfile.followers.length}
+              <strong>Followers: </strong>{followers.length}
             </p>
           </div>
         </div>
         <div className={styles.postsContainer}>
-          {postsToMap.length === 0 ?
+          {posts.length === 0 ?
             <h3>You have no posts yet!</h3>
             :
-            postsToMap.map((post) => {
+            posts.map((post) => {
               return (
                 <Post
-                  key={post.url}
-                  username={post.user}
+                  key={post._id}
+                  username={userName}
                   date={post.createdAt}
                   url={post.url}
                   likes={post.likes.length}
