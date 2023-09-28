@@ -43,7 +43,7 @@ const ProfilePage = ({ userOfProfile }) => {
               <AiOutlineEdit />
             </button>
             {
-              userName === loggedUser.userName || cookies.get('userName') ?
+              userName === (loggedUser.userName || cookies.get('userName')) ?
                 (<button
                   className={styles.editTextButton}
                   type="button"

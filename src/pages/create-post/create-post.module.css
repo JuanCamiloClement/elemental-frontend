@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.fileInput {
+  display: none;
+}
+
 .cancelButton {
   all: unset;
   /* Margin, padding and width */

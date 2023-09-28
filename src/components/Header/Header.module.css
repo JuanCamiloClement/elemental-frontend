@@ -33,7 +33,7 @@
 
 .buttonsContainer {
   /* Margin, padding and width */
-  width: 180px;
+  width: 200px;
   margin: 5px;
   /* Display */
   display: flex;
@@ -112,6 +112,25 @@
   cursor: pointer;
 }
 
+.logoutIconButton {
+  all: unset;
+  /* Margin, padding and width */
+  padding: 8px;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Background */
+  background-color: #FEFAE0;
+  /* Font */
+  font-size: 1.2rem;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 50%;
+  /* Cursor */
+  cursor: pointer;
+}
+
 .searchContainer {
   /* Margin, padding and width */
   margin: 5px;
@@ -149,8 +168,8 @@
   }
 
   .buttonsContainer {
-    width: 80%;
-    max-width: 320px;
+    width: 90%;
+    max-width: 340px;
   }
 
   .searchIconButton {
@@ -183,6 +202,8 @@
   .profileButton {
     display: inline-block;
   }
-}
 
-@media(min-width: 768px) {}
+  .logoutIconButton {
+    display: none;
+  }
+}

@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     domains: [
       'rickandmortyapi.com',
-      'picsum.photos'
+      'picsum.photos',
+      'res.cloudinary.com'
     ]
   }
 }

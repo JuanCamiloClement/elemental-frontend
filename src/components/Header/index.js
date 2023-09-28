@@ -8,6 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
 import { IoPersonOutline } from "react-icons/io5";
 import { GrUpload } from "react-icons/gr";
+import { FiLogOut } from "react-icons/fi"
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -98,6 +99,13 @@ const Header = () => {
             onClick={() => router.push(`/feed/${loggedUser.userName}`)}
           >
             <CgFeed />
+          </button>
+          <button
+            className={styles.logoutIconButton}
+            type="button"
+            onClick={handleLogout}
+          >
+            <FiLogOut />
           </button>
         </div>
       </header>
