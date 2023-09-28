@@ -88,6 +88,12 @@
   /* Border */
   border: solid 2px #D4A373;
   border-radius: 50%;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.fileInput {
+  display: none;
 }
 
 .buttonsContainer {

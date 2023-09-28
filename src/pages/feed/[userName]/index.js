@@ -2,14 +2,17 @@ import Layout from '@/components/Layout';
 import Post from '@/components/Post';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { wrapper } from '@/redux/store';
 import { feedState, setFeed } from '@/redux/slices/feedSlice';
+import { getUser, userState } from '@/redux/slices/userSlice';
 import styles from './feed.module.css';
 
-const FeedPage = ({ loggedUser }) => {
+const FeedPage = () => {
   const dispatch = useDispatch();
   const { feed } = useSelector(feedState);
+  const { user } = useSelector(userState);
 
-  const { follows } = loggedUser;
+  const { follows } = user;
 
   useEffect(() => {
     dispatch(setFeed(follows));
@@ -45,13 +48,6 @@ const FeedPage = ({ loggedUser }) => {
 
 export default FeedPage;
 
-export const getServerSideProps = async ({ params }) => {
-  const response = await fetch(`http://localhost:8080/api/users/logged/${params.userName}`);
-  const fetchedUser = await response.json();
-
-  return {
-    props: {
-      loggedUser: fetchedUser.user,
-    }
-  }
-}
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
+  await store.dispatch(getUser(params.userName));
+});

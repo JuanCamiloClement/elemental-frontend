@@ -4,13 +4,18 @@ import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import { useSelector } from 'react-redux';
+import { wrapper } from '@/redux/store';
+import { getUser, userState } from '@/redux/slices/userSlice';
 import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { AiOutlineEdit } from "react-icons/ai";
 import profilePic from "@public/profile-pic.jpeg";
 import styles from "./profile.module.css";
 
-const ProfilePage = ({ userOfProfile }) => {
+const ProfilePage = () => {
   const cookies = new Cookies();
+
+  const { user } = useSelector(userState);
 
   const router = useRouter();
 
@@ -22,7 +27,7 @@ const ProfilePage = ({ userOfProfile }) => {
     userName,
     posts,
     followers,
-  } = userOfProfile;
+  } = user;
 
   return (
     <Layout>
@@ -31,7 +36,7 @@ const ProfilePage = ({ userOfProfile }) => {
           <div className={styles.imageAndEditContainer}>
             <Image
               className={styles.profileImage}
-              src={profilePic}
+              src={user.avatar /* !== (undefined || null) */ ? user.avatar : profilePic}
               alt="Profile picture"
               width={200}
               height={200}
@@ -47,7 +52,7 @@ const ProfilePage = ({ userOfProfile }) => {
                 (<button
                   className={styles.editTextButton}
                   type="button"
-                  onClick={() => router.push(`/edit-profile/${userOfProfile.userName}`)}
+                  onClick={() => router.push(`/edit-profile/${user.userName}`)}
                 >
                   Edit
                 </button>
@@ -67,9 +72,9 @@ const ProfilePage = ({ userOfProfile }) => {
             <p className={styles.userName}>
               {userName}
             </p>
-            {userOfProfile.bio &&
+            {user.bio &&
               <p className={styles.bio}>
-                {userOfProfile.bio}
+                {user.bio}
               </p>
             }
           </div>
@@ -106,13 +111,6 @@ const ProfilePage = ({ userOfProfile }) => {
 
 export default ProfilePage;
 
-export const getServerSideProps = async ({ params }) => {
-  const response = await fetch(`http://localhost:8080/api/users/logged/${params.userName}`);
-  const fetchedUser = await response.json();
-
-  return {
-    props: {
-      userOfProfile: fetchedUser.user,
-    }
-  }
-}
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
+  await store.dispatch(getUser(params.userName));
+});
