@@ -1,28 +1,18 @@
 import Layout from '@/components/Layout';
 import Post from '@/components/Post';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { feedState, setFeed } from '@/redux/slices/feedSlice';
 import styles from './feed.module.css';
 
 const FeedPage = ({ loggedUser }) => {
+  const dispatch = useDispatch();
+  const { feed } = useSelector(feedState);
 
   const { follows } = loggedUser;
 
-  const [postsToMap, setPostsToMap] = useState([]);
-
   useEffect(() => {
-    const postsToRender = [];
-    follows.map(({ user }) => {
-      user.posts.map(({ url, likes, comments, createdAt }) => {
-        postsToRender.push({
-          url,
-          user,
-          likes,
-          comments,
-          createdAt,
-        });
-      });
-    });
-    setPostsToMap(postsToRender);
+    dispatch(setFeed(follows));
   }, []);
 
   return (
@@ -31,10 +21,10 @@ const FeedPage = ({ loggedUser }) => {
         <div className={styles.wholeContainer}>
           <h3 className={styles.h3}>What's new?</h3>
           <div className={styles.postsContainer}>
-            {postsToMap.length === 0 ?
+            {feed.length === 0 ?
               <h3>The people you follow haven't posted yet!</h3>
               :
-              postsToMap.map((post) => {
+              feed.map((post) => {
                 return (
                   <Post
                     key={post.url}

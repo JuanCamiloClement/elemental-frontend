@@ -1,30 +1,34 @@
 import Image from "next/image";
 import Layout from "@/components/Layout";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import profilePic from "@public/profile-pic.jpeg";
 import styles from "./edit-profile.module.css";
+import {
+  editProfileState,
+  showChangePasswordSection,
+  showPersonalInformationSection,
+  showProfileImageSection
+} from "@/redux/slices/editProfileSlice";
 
 const EditProfilePage = () => {
-  const [profileImageSection, setProfileImageSection] = useState(true);
-  const [editPersonalInformationSection, setEditPersonalInformationSection] = useState(false);
-  const [changePassword, setChangePassword] = useState(false);
+  const dispatch = useDispatch();
+
+  const {
+    profileImageSection,
+    personalInformationSection,
+    changePasswordSection,
+  } = useSelector(editProfileState);
 
   const handleShowProfileImageSection = () => {
-    setProfileImageSection(true);
-    setEditPersonalInformationSection(false);
-    setChangePassword(false);
+    dispatch(showProfileImageSection());
   }
 
   const handleShowEditPersonalInformationSection = () => {
-    setEditPersonalInformationSection(true);
-    setProfileImageSection(false);
-    setChangePassword(false);
+    dispatch(showPersonalInformationSection());
   }
 
   const handleShowChangePassword = () => {
-    setChangePassword(true);
-    setEditPersonalInformationSection(false);
-    setProfileImageSection(false);
+    dispatch(showChangePasswordSection());
   }
 
   return (
@@ -88,7 +92,7 @@ const EditProfilePage = () => {
               </div>
             }
             {
-              editPersonalInformationSection &&
+              personalInformationSection &&
               <div className={styles.editPersonalInformationSection}>
                 <form
                   className={styles.editPersonalInformationForm}
@@ -140,7 +144,7 @@ const EditProfilePage = () => {
               </div>
             }
             {
-              changePassword &&
+              changePasswordSection &&
               <div className={styles.changePasswordSection}>
                 <form
                   className={styles.changePasswordForm}

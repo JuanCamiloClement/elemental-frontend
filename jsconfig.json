@@ -18,6 +18,9 @@
       ],
       "@contextStore": [
         "./src/contextStore/*"
+      ],
+      "@redux": [
+        "./src/redux/*"
       ]
     }
   }
