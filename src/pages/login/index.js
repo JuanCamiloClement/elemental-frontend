@@ -49,6 +49,8 @@ const LoginPage = () => {
         lastName: loggedUser.profile.lastName,
         userName: loggedUser.profile.userName,
         email: loggedUser.profile.email,
+        follows: loggedUser.profile.follows,
+        followers: loggedUser.profile.followers,
       });
 
       cookies.set('token', loggedUser.token, { path: "/" });
@@ -56,6 +58,8 @@ const LoginPage = () => {
       cookies.set('lastName', loggedUser.profile.lastName, { path: "/" });
       cookies.set('userName', loggedUser.profile.userName, { path: "/" });
       cookies.set('email', loggedUser.profile.email, { path: "/" });
+      cookies.set('follows', loggedUser.profile.follows, { path: "/" });
+      cookies.set('followers', loggedUser.profile.followers, { path: "/" });
 
       router.push(`/feed/${loggedUser.profile.userName}`);
     } catch (error) {

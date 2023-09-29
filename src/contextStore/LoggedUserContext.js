@@ -12,6 +12,8 @@ export const LoggedUserProvider = ({ children }) => {
     lastName: cookies.get('lastName') || '',
     userName: cookies.get('userName') || '',
     email: cookies.get('email') || '',
+    follows: cookies.get('follows') || [],
+    followers: cookies.get('followers') || [],
   });
 
   return (

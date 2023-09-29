@@ -29,7 +29,7 @@ const userSlice = createSlice({
   }
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, setLoggedUser } = userSlice.actions;
 
 export const userState = (state) => state.user;
 
