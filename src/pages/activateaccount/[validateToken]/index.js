@@ -16,12 +16,18 @@ const AccountActivationPage = ({ user }) => {
       lastName: user.profile.lastName,
       userName: user.profile.userName,
       email: user.profile.email,
+      follows: user.profile.follows,
+      followers: user.profile.followers,
+      likes: user.profile.likes,
     });
     cookies.set('token', user.token, { path: "/" });
     cookies.set('firstName', user.profile.firstName, { path: "/" });
     cookies.set('lastName', user.profile.lastName, { path: "/" });
     cookies.set('userName', user.profile.userName, { path: "/" });
     cookies.set('email', user.profile.email, { path: "/" });
+    cookies.set('follows', user.profile.follows, { path: "/" });
+    cookies.set('followers', user.profile.followers, { path: "/" });
+    cookies.set('likes', user.profile.likes, { path: "/" });
   }, []);
 
   return (

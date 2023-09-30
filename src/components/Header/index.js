@@ -32,6 +32,8 @@ const Header = () => {
     cookies.remove('email', { path: "/" });
     cookies.remove('follows', { path: "/" });
     cookies.remove('followers', { path: "/" });
+    cookies.remove('likes', { path: "/" });
+
     router.push('/login');
   }
 

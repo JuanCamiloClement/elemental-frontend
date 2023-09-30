@@ -1,0 +1,53 @@
+.username,
+.timeAgo,
+.content {
+  all: unset;
+}
+
+.wholeComment {
+  /* Position */
+  /* Margin, padding and width */
+  width: auto;
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+.userAndTimeContainer {
+  /* Position */
+  /* Margin, padding and width */
+  margin-bottom: 5px;
+  /* Display */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+.contentContainer {
+  /* Position */
+  /* Margin, padding and width */
+  padding-top: 5px;
+  /* Display */
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  border-top: solid 1px #D4A373;
+  /* Cursor */
+}
+
+/* Position */
+/* Margin, padding and width */
+/* Display */
+/* Background */
+/* Font and text*/
+/* Border */
+/* Cursor */

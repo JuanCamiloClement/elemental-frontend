@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Cookies from "universal-cookie";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import Comment from "@components/Comment"
+import { AiOutlineHeart, AiFillHeart, AiOutlineSend } from "react-icons/ai";
 import { useEffect, useContext, useState } from "react";
 import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { timeAgo } from "../../../utils/timeAgo";
@@ -19,12 +20,17 @@ const Post = ({
   const cookies = new Cookies();
   const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
   const [loggedUserLikes, setLoggedUserLikes] = useState([]);
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     const likesArray = [];
     loggedUser.likes.map(({ post }) => likesArray.push(post));
     setLoggedUserLikes(likesArray);
   }, [loggedUser]);
+
+  const handleShowComments = () => {
+    setShowComments(!showComments)
+  }
 
   const handleLike = async () => {
     const fetchConfig = {
@@ -101,8 +107,28 @@ const Post = ({
               <AiOutlineHeart />
             </button>)
         }
-        <p className={styles.paragraph}>{likes} likes</p>
-        <p className={styles.paragraph}>{comments} comments</p>
+        <p className={styles.paragraph}>{likes.length} likes</p>
+        <button
+          className={styles.showCommentsButton}
+          onClick={handleShowComments}
+        >
+          {comments.length} comments
+        </button>
+      </div>
+      <div className={styles.commentsAndInput}>
+        {showComments &&
+          <Comment />
+        }
+        <div className={styles.inputContainer}>
+          <textarea
+            className={styles.text}
+          />
+          <button
+            className={styles.sendButton}
+          >
+            <AiOutlineSend />
+          </button>
+        </div>
       </div>
     </div>
   );

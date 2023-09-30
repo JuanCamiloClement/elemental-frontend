@@ -35,8 +35,8 @@ const FeedPage = () => {
                     username={post.user.userName}
                     date={post.createdAt}
                     url={post.url}
-                    likes={post.likes.length}
-                    comments={post.comments.length}
+                    likes={post.likes}
+                    comments={post.comments}
                   />
                 )
               })}

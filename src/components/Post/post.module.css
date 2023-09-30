@@ -2,6 +2,7 @@
   all: unset;
 }
 
+
 .link {
   color: black;
   text-decoration: none;
@@ -14,6 +15,7 @@
   height: auto;
   /* Display */
   /* Background */
+  background-color: #FEFAE0;
   /* Font and text*/
   /* Border */
   border: solid 1px #D4A373;
@@ -53,16 +55,65 @@
   flex-direction: row;
   justify-content: space-between;
   /* Background */
-  background-color: #FEFAE0;
   /* Font and text*/
   /* Border */
-  border: solid 1px #FAEDCD;
   border-radius: 0 0 10px 10px;
   /* Cursor */
 }
 
 .heartButton {
   all: unset;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.showCommentsButton {
+  all: unset;
+  cursor: pointer;
+}
+
+.commentsAndInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text {
+  all: unset;
+  /* Margin, padding and width */
+  margin: 5px;
+  width: inherit;
+  padding: 5px;
+  /* Background */
+  background-color: white;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 10px;
+}
+
+.sendButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: fit-content;
+  margin: 5px;
+  padding: 10px;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Background */
+  background-color: #1E3231;
+  /* Font and text*/
+  color: white;
+  /* Border */
+  border-radius: 50%;
+  border: solid 1px grey;
   /* Cursor */
   cursor: pointer;
 }

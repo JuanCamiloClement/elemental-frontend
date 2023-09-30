@@ -14,6 +14,7 @@ export const LoggedUserProvider = ({ children }) => {
     email: cookies.get('email') || '',
     follows: cookies.get('follows') || [],
     followers: cookies.get('followers') || [],
+    likes: cookies.get('likes') || [],
   });
 
   return (
