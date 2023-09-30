@@ -9,8 +9,8 @@ import styles from './feed.module.css';
 
 const FeedPage = () => {
   const dispatch = useDispatch();
-  const { feed } = useSelector(feedState);
   const { user } = useSelector(userState);
+  const { feed } = useSelector(feedState);
 
   const { follows } = user;
 
@@ -30,7 +30,8 @@ const FeedPage = () => {
               feed.map((post) => {
                 return (
                   <Post
-                    key={post.url}
+                    key={post._id}
+                    id={post._id}
                     username={post.user.userName}
                     date={post.createdAt}
                     url={post.url}

@@ -152,6 +152,7 @@ const ProfilePage = ({ user }) => {
               return (
                 <Post
                   key={post._id}
+                  id={post._id}
                   username={profileUser.userName}
                   date={post.createdAt}
                   url={post.url}

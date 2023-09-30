@@ -12,8 +12,9 @@ const feedSlice = createSlice({
     setFeed: (state, action) => {
       const postsToRender = [];
       action.payload.map(({ user }) => {
-        user.posts.map(({ url, likes, comments, createdAt }) => {
+        user.posts.map(({ _id, url, likes, comments, createdAt }) => {
           postsToRender.push({
+            _id,
             url,
             user,
             likes,

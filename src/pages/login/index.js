@@ -51,6 +51,7 @@ const LoginPage = () => {
         email: loggedUser.profile.email,
         follows: loggedUser.profile.follows,
         followers: loggedUser.profile.followers,
+        likes: loggedUser.profile.likes,
       });
 
       cookies.set('token', loggedUser.token, { path: "/" });
@@ -60,6 +61,7 @@ const LoginPage = () => {
       cookies.set('email', loggedUser.profile.email, { path: "/" });
       cookies.set('follows', loggedUser.profile.follows, { path: "/" });
       cookies.set('followers', loggedUser.profile.followers, { path: "/" });
+      cookies.set('likes', loggedUser.profile.likes, { path: "/" });
 
       router.push(`/feed/${loggedUser.profile.userName}`);
     } catch (error) {
