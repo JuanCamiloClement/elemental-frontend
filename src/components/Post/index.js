@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useEffect, useContext, useState } from "react";
 import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
+import { timeAgo } from "../../../utils/timeAgo";
 import styles from "./post.module.css";
 
 const Post = ({
@@ -14,6 +15,7 @@ const Post = ({
   likes,
   comments,
 }) => {
+  const relativeTime = timeAgo(new Date(date));
   const cookies = new Cookies();
   const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
   const [loggedUserLikes, setLoggedUserLikes] = useState([]);
@@ -74,7 +76,7 @@ const Post = ({
         <Link className={styles.link} href={`/profile/${username}`}>
           <p className={styles.paragraph}><strong>{username}</strong></p>
         </Link>
-        <p className={styles.paragraph}>{date}</p>
+        <p className={styles.paragraph}>{relativeTime}</p>
       </div>
       <Image
         className={styles.postImage}
