@@ -176,6 +176,8 @@ const Post = ({
           commentsToRender.map((comment) => {
             return (
               <Comment
+                key={comment._id}
+                id={comment._id}
                 userName={comment.user.userName}
                 timeAgo={comment.createdAt}
                 content={comment.content}

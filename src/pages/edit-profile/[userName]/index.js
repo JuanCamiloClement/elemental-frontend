@@ -29,9 +29,12 @@ const EditProfilePage = () => {
 
   const [file, setFile] = useState(null);
   const [userToEdit, setUserToEdit] = useState({
-    ...user,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    userName: user.userName,
+    email: user.email,
     bio: user.bio ? user.bio : '',
-    avatar: user.avatar /* !== (null || undefined) */ ? user.avatar : profilePic,
+    avatar: user.avatar ? user.avatar : profilePic,
   });
   const [imageToRender, setImageToRender] = useState(userToEdit.avatar);
 
