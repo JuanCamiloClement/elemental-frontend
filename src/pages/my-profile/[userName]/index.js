@@ -90,6 +90,7 @@ const MyProfilePage = ({ user }) => {
             <button
               className={styles.editIconButton}
               type="button"
+              onClick={() => router.push(`/edit-profile/${user.userName}`)}
             >
               <AiOutlineEdit />
             </button>

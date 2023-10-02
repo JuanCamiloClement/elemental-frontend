@@ -39,7 +39,7 @@
 .postImage {
   /* Margin, padding and width */
   width: 300px;
-  height: 225px;
+  height: auto;
 }
 
 .likesAndComments {
@@ -118,6 +118,5 @@
   .postImage {
     /* Margin, padding and width */
     width: 500px;
-    height: 375px;
   }
 }

@@ -87,12 +87,6 @@ const ProfilePage = ({ user }) => {
               width={200}
               height={200}
             />
-            <button
-              className={styles.editIconButton}
-              type="button"
-            >
-              <AiOutlineEdit />
-            </button>
             {
               followedUsers.includes(profileUser.userName) ?
                 (<button
