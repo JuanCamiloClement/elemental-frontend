@@ -1,8 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import Cookies from "universal-cookie";
-import { useContext } from "react";
-import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { useRouter } from "next/router";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
@@ -10,21 +7,15 @@ import { IoPersonOutline } from "react-icons/io5";
 import { GrUpload } from "react-icons/gr";
 import { FiLogOut } from "react-icons/fi"
 import styles from "./Header.module.css";
+import { useState } from "react";
 
 const Header = () => {
   const cookies = new Cookies();
   const router = useRouter();
 
-  const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
+  const [search, setSearch] = useState('');
 
   const handleLogout = () => {
-    setLoggedUser({
-      token: '',
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-    });
     cookies.remove('token', { path: "/" });
     cookies.remove('firstName', { path: "/" });
     cookies.remove('lastName', { path: "/" });
@@ -37,23 +28,30 @@ const Header = () => {
     router.push('/login');
   }
 
+  const handleNavigationToProfile = () => {
+    router.push(`/profile/${cookies.get('userName')}`)
+  }
+
+  const handleNavigationToFeed = () => {
+    router.push(`/feed/${cookies.get('userName')}`)
+  }
+
   return (
     <div className={styles.headerContainer}>
       <header className={styles.header}>
-        <Link className={styles.link} href={`/feed/${loggedUser.userName}`}>
-          <Image
-            className={styles.logo}
-            src="/elemental-transparent.png"
-            alt="Elemental logo"
-            width={150}
-            height={40}
-          />
-        </Link>
+        <Image
+          className={styles.logo}
+          src="/elemental-transparent.png"
+          alt="Elemental logo"
+          width={150}
+          height={40}
+          onClick={handleNavigationToFeed}
+        />
         <div className={styles.buttonsContainer}>
           <button
             className={styles.profileButton}
             type="button"
-            onClick={() => router.push(`/profile/${loggedUser.userName}`)}
+            onClick={handleNavigationToProfile}
           >
             Profile
           </button>
@@ -69,10 +67,16 @@ const Header = () => {
               className={styles.searchInput}
               type="text"
               placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
             <button
               className={styles.searchButton}
               type="button"
+              onClick={() => router.push({
+                pathname: '/search-results',
+                query: { searched: search }
+              })}
             >
               <AiOutlineSearch />
             </button>
@@ -86,7 +90,7 @@ const Header = () => {
           <button
             className={styles.profileIconButton}
             type="button"
-            onClick={() => router.push(`/profile/${loggedUser.userName}`)}
+            onClick={handleNavigationToProfile}
           >
             <IoPersonOutline />
           </button>
@@ -100,7 +104,7 @@ const Header = () => {
           <button
             className={styles.button}
             type="button"
-            onClick={() => router.push(`/feed/${loggedUser.userName}`)}
+            onClick={handleNavigationToFeed}
           >
             <CgFeed />
           </button>

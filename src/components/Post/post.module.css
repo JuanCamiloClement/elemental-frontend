@@ -9,14 +9,11 @@
 }
 
 .post {
-  /* Position */
   /* Margin, padding and width */
   margin: 10px;
   height: auto;
-  /* Display */
   /* Background */
   background-color: #FEFAE0;
-  /* Font and text*/
   /* Border */
   border: solid 1px #D4A373;
   border-radius: 10px;
@@ -24,7 +21,6 @@
 }
 
 .postHeader {
-  /* Position */
   /* Margin, padding and width */
   padding: 10px;
   /* Display */

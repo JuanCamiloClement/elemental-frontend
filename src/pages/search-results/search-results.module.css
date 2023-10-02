@@ -1,0 +1,35 @@
+.wholeContainer {
+  /* Position */
+  /* Margin, padding and width */
+  padding-top: 20px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+.results {
+  /* Position */
+  /* Margin, padding and width */
+  width: 100%;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Background */
+  /* Font and text*/
+  /* Border */
+  /* Cursor */
+}
+
+/* Position */
+/* Margin, padding and width */
+/* Display */
+/* Background */
+/* Font and text*/
+/* Border */
+/* Cursor */

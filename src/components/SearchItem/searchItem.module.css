@@ -1,0 +1,49 @@
+.wholeContainer {
+  width: 100%;
+}
+
+.link {
+  all: unset;
+  /* Margin, padding and width */
+  width: 100%;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.searchItemContainer {
+  /* Margin, padding and width */
+  width: -webkit-fill-available;
+  margin: 10px;
+  max-width: 300px;
+  /* Display */
+  display: flex;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 10px;
+  /* Cursor */
+}
+
+.image {
+  border-radius: 10px 0 0 10px;
+}
+
+.name {
+  margin-left: 10px;
+}
+
+@media(min-width: 500px) {
+  .searchItemContainer {
+    max-width: 500px;
+  }
+}
+
+/* Position */
+/* Margin, padding and width */
+/* Display */
+/* Background */
+/* Font and text*/
+/* Border */
+/* Cursor */

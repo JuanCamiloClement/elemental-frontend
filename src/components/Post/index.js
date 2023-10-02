@@ -179,7 +179,7 @@ const Post = ({
                 key={comment._id}
                 id={comment._id}
                 userName={comment.user.userName}
-                timeAgo={comment.createdAt}
+                date={comment.createdAt}
                 content={comment.content}
               />
             )
