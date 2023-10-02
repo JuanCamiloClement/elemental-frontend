@@ -55,7 +55,7 @@ const CreatePostPage = () => {
 
     await fetch('http://localhost:8080/api/posts', fetchConfig);
 
-    router.push(`/profile/${loggedUser.userName || cookies.get('userName')}`);
+    router.push(`/my-profile/${loggedUser.userName || cookies.get('userName')}`);
   }
 
   return (

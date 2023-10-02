@@ -29,7 +29,7 @@ const Header = () => {
   }
 
   const handleNavigationToProfile = () => {
-    router.push(`/profile/${cookies.get('userName')}`)
+    router.push(`/my-profile/${cookies.get('userName')}`)
   }
 
   const handleNavigationToFeed = () => {

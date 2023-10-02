@@ -18,6 +18,8 @@ const FeedPage = () => {
     dispatch(setFeed(follows));
   }, []);
 
+  console.log(feed)
+
   return (
     <>
       <Layout>

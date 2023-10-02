@@ -94,32 +94,22 @@ const ProfilePage = ({ user }) => {
               <AiOutlineEdit />
             </button>
             {
-              profileUser.userName === (loggedUser.userName || cookies.get('userName')) ?
+              followedUsers.includes(profileUser.userName) ?
                 (<button
                   className={styles.editTextButton}
                   type="button"
-                  onClick={() => router.push(`/edit-profile/${profileUser.userName}`)}
+                  onClick={handleUnfollow}
                 >
-                  Edit
+                  Unfollow
                 </button>
                 ) : (
-                  followedUsers.includes(profileUser.userName) ?
-                    (<button
-                      className={styles.editTextButton}
-                      type="button"
-                      onClick={handleUnfollow}
-                    >
-                      Unfollow
-                    </button>
-                    ) : (
-                      <button
-                        className={styles.editTextButton}
-                        type="button"
-                        onClick={handleFollow}
-                      >
-                        Follow
-                      </button>)
-                )
+                  <button
+                    className={styles.editTextButton}
+                    type="button"
+                    onClick={handleFollow}
+                  >
+                    Follow
+                  </button>)
             }
           </div>
           <div className={styles.infoContainer}>

@@ -70,7 +70,7 @@ const EditProfilePage = () => {
 
     await fetch('http://localhost:8080/api/users/avatar', fetchConfig);
 
-    router.push(`/profile/${cookies.get('userName')}`);
+    router.push(`/my-profile/${cookies.get('userName')}`);
   }
 
   const handleChange = (e) => {
@@ -95,7 +95,7 @@ const EditProfilePage = () => {
 
       await fetch('http://localhost:8080/api/users/info', fetchConfig);
 
-      router.push(`/profile/${user.userName}`);
+      router.push(`/my-profile/${user.userName}`);
     } catch (error) {
       // console.log(error.message);
     }
@@ -114,7 +114,7 @@ const EditProfilePage = () => {
 
       await fetch('http://localhost:8080/api/users/remove-avatar', fetchConfig);
 
-      router.push(`/profile/${user.userName}`);
+      router.push(`/my-profile/${user.userName}`);
 
       setImageToRender(profilePic);
       setFile(null);

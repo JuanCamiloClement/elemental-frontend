@@ -137,7 +137,7 @@ const LoginPage = () => {
             Login
           </button>
           <p>
-            Don't have an account yet? <Link href="/signup">Register</Link>
+            Don't have an account yet? <Link href="/">Register</Link>
           </p>
           <button
             className={styles.googleButton}

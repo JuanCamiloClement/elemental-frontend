@@ -1,0 +1,104 @@
+.header {
+  /* Margin, padding and width */
+  width: 100vw;
+  padding: 5px;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border-bottom: solid 1px #D4A373;
+}
+
+.formContainer {
+  /* Margin, padding and width */
+  width: 100vw;
+  height: 90vh;
+  padding: 5px;
+  /* Display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Background */
+  background-color: #ECE3DA;
+}
+
+.brains {
+  display: none;
+}
+
+.form {
+  /* Margin, padding and width */
+  width: 90%;
+  max-width: 300px;
+  margin: 10px 5px;
+  padding: 10px;
+  /* Display */
+  display: flex;
+  flex-direction: column;
+  /* Background */
+  background-color: #FAEDCD;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 15px;
+}
+
+.input {
+  /* Margin, padding and width */
+  margin-bottom: 5px;
+  /* Border */
+  border: solid 1px #D4A373;
+  border-radius: 5px;
+}
+
+.signupButton {
+  all: unset;
+  /* Margin, padding and width */
+  width: 80px;
+  margin: 10px auto;
+  padding: 10px 5px;
+  /* Background */
+  background-color: #1E3231;
+  /* Font and text*/
+  color: white;
+  text-align: center;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px grey;
+  /* Cursor */
+  cursor: pointer;
+}
+
+.googleButton {
+  all: unset;
+  /* Margin, padding and width */
+  padding: 5px 5px;
+  /* Display */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* Background */
+  background-color: white;
+  /* Border */
+  border-radius: 10px;
+  border: solid 1px grey;
+  /* Cursor */
+  cursor: pointer;
+}
+
+@media(min-width: 450px) {
+  .input {
+    /* Margin, padding and width */
+    height: 1.5rem;
+    margin-bottom: 5px;
+    /* Border */
+    border-radius: 5px;
+  }
+}
+
+@media(min-width: 768px) {
+  .brains {
+    display: inline-block;
+  }
+}

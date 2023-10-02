@@ -59,11 +59,11 @@ const Post = ({
     await fetch('http://localhost:8080/api/likes', fetchConfig);
 
     const response = await fetch(`http://localhost:8080/api/users/single/${loggedUser.userName}`);
-    const user = await response.json();
+    const { user } = await response.json();
 
     setLoggedUser({
       ...loggedUser,
-      likes: user.user.likes,
+      likes: user.likes,
     });
 
     const postResponse = await fetch(`http://localhost:8080/api/posts/${id}`);
@@ -71,7 +71,7 @@ const Post = ({
 
     setLikesToRender(post.likes.length);
 
-    cookies.set('likes', user.user.follows, { path: '/' });
+    cookies.set('likes', user.follows, { path: '/' });
   }
 
   const handleRemoveLike = async () => {
@@ -85,11 +85,11 @@ const Post = ({
     await fetch(`http://localhost:8080/api/likes?postId=${id}`, fetchConfig);
 
     const response = await fetch(`http://localhost:8080/api/users/single/${loggedUser.userName}`);
-    const user = await response.json();
+    const { user } = await response.json();
 
     setLoggedUser({
       ...loggedUser,
-      likes: user.user.likes,
+      likes: user.likes,
     });
 
     const postResponse = await fetch(`http://localhost:8080/api/posts/${id}`);
@@ -97,7 +97,7 @@ const Post = ({
 
     setLikesToRender(post.likes.length);
 
-    cookies.set('likes', user.user.follows, { path: '/' });
+    cookies.set('likes', user.follows, { path: '/' });
   }
 
   const handleCommentCreation = (e) => {
