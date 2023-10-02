@@ -13,7 +13,7 @@ const Post = ({
   username,
   date,
   url,
-  likes, // debe ser un arreglo de objetos, cada uno con _id del like y id del post
+  likes,
   comments,
 }) => {
   const relativeTime = timeAgo(new Date(date));
@@ -39,7 +39,7 @@ const Post = ({
   useEffect(() => {
     const likesArray = [];
     loggedUser.likes.map(({ post }) => likesArray.push(post));
-    setLoggedUserLikes(likesArray); // queda un arreglo de los ids de los posts a los que le ha dado like el usuario logueado
+    setLoggedUserLikes(likesArray);
   }, [loggedUser]);
 
   const handleShowComments = () => {

@@ -1,81 +1,13 @@
 import Image from "next/image";
-import Cookies from "universal-cookie";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
-import { LoggedUserContext } from "@/contextStore/LoggedUserContext";
 import { AiOutlineEdit } from "react-icons/ai";
 import profilePic from "@public/profile-pic.jpeg";
 import styles from "./my-profile.module.css";
 
 const MyProfilePage = ({ user }) => {
-  const cookies = new Cookies();
-
   const router = useRouter();
-
-  //console.log(user.posts)
-
-  // const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
-
-  // const [followedUsers, setFollowedUsers] = useState([]);
-  //const [profileUser, setProfileUser] = useState(user);
-
-  // useEffect(() => {
-  //   const followedUsers = [];
-  //   loggedUser.follows.map(({ user }) => {
-  //     followedUsers.push(user.userName);
-  //   })
-  //   setFollowedUsers(followedUsers);
-  // }, [profileUser]);
-
-  // const handleFollow = async () => {
-  //   const fetchConfig = {
-  //     method: 'POST',
-  //     body: JSON.stringify({ usernameToFollow: profileUser.userName }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${cookies.get('token')}`
-  //     }
-  //   }
-
-  //   await fetch(`http://localhost:8080/api/follows/`, fetchConfig);
-
-  //   const response = await fetch(`http://localhost:8080/api/users/single/${loggedUser.userName}`);
-  //   const logged = await response.json();
-
-  //   setLoggedUser({
-  //     ...loggedUser,
-  //     follows: logged.user.follows,
-  //   });
-
-  //   cookies.set('follows', logged.user.follows, { path: '/' });
-
-  //   const profileUserResponse = await fetch(`http://localhost:8080/api/users/single/${profileUser.userName}`);
-  //   const profileUserData = await profileUserResponse.json();
-  //   setProfileUser(profileUserData.user);
-  // }
-
-  // const handleUnfollow = async () => {
-  //   await fetch(
-  //     `http://localhost:8080/api/follows?follower=${loggedUser.userName}&followedUser=${profileUser.userName}`,
-  //     { method: 'DELETE' }
-  //   );
-
-  //   const response = await fetch(`http://localhost:8080/api/users/single/${loggedUser.userName}`);
-  //   const logged = await response.json();
-
-  //   setLoggedUser({
-  //     ...loggedUser,
-  //     follows: logged.user.follows,
-  //   });
-
-  //   cookies.set('follows', logged.user.follows, { path: '/' });
-
-  //   const profileUserResponse = await fetch(`http://localhost:8080/api/users/single/${profileUser.userName}`);
-  //   const profileUserData = await profileUserResponse.json();
-  //   setProfileUser(profileUserData.user);
-  // }
 
   return (
     <Layout>
