@@ -14,9 +14,11 @@ const MyProfilePage = ({ user }) => {
 
   const router = useRouter();
 
-  const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
+  //console.log(user.posts)
 
-  const [followedUsers, setFollowedUsers] = useState([]);
+  // const { loggedUser, setLoggedUser } = useContext(LoggedUserContext);
+
+  // const [followedUsers, setFollowedUsers] = useState([]);
   //const [profileUser, setProfileUser] = useState(user);
 
   // useEffect(() => {

@@ -13,7 +13,7 @@ const Post = ({
   username,
   date,
   url,
-  likes,
+  likes, // debe ser un arreglo de objetos, cada uno con _id del like y id del post
   comments,
 }) => {
   const relativeTime = timeAgo(new Date(date));
@@ -39,7 +39,7 @@ const Post = ({
   useEffect(() => {
     const likesArray = [];
     loggedUser.likes.map(({ post }) => likesArray.push(post));
-    setLoggedUserLikes(likesArray);
+    setLoggedUserLikes(likesArray); // queda un arreglo de los ids de los posts a los que le ha dado like el usuario logueado
   }, [loggedUser]);
 
   const handleShowComments = () => {
@@ -71,7 +71,7 @@ const Post = ({
 
     setLikesToRender(post.likes.length);
 
-    cookies.set('likes', user.follows, { path: '/' });
+    cookies.set('likes', user.likes, { path: '/' });
   }
 
   const handleRemoveLike = async () => {
@@ -97,7 +97,7 @@ const Post = ({
 
     setLikesToRender(post.likes.length);
 
-    cookies.set('likes', user.follows, { path: '/' });
+    cookies.set('likes', user.likes, { path: '/' });
   }
 
   const handleCommentCreation = (e) => {

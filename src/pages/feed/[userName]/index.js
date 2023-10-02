@@ -1,24 +1,16 @@
 import Layout from '@/components/Layout';
 import Post from '@/components/Post';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { wrapper } from '@/redux/store';
-import { feedState, setFeed } from '@/redux/slices/feedSlice';
-import { getUser, userState } from '@/redux/slices/userSlice';
+import { useEffect, useState } from 'react';
 import styles from './feed.module.css';
+import { organizeFeed } from '../../../../utils/organizeFeed';
 
-const FeedPage = () => {
-  const dispatch = useDispatch();
-  const { user } = useSelector(userState);
-  const { feed } = useSelector(feedState);
-
-  const { follows } = user;
+const FeedPage = ({ user }) => {
+  const [feed, setFeed] = useState([]);
 
   useEffect(() => {
-    dispatch(setFeed(follows));
+    const postsToRender = organizeFeed(user.follows);
+    setFeed(postsToRender)
   }, []);
-
-  console.log(feed)
 
   return (
     <>
@@ -51,6 +43,13 @@ const FeedPage = () => {
 
 export default FeedPage;
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
-  await store.dispatch(getUser(params.userName));
-});
+export const getServerSideProps = async ({ params }) => {
+  const response = await fetch(`http://localhost:8080/api/users/single/${params.userName}`);
+  const data = await response.json();
+
+  return {
+    props: {
+      user: data.user,
+    }
+  }
+};
